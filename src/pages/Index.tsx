@@ -103,9 +103,14 @@ const Index = () => {
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="font-mono text-muted-foreground">v1.0 • Minecraft Fabric 1.20+</span>
             </div>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black leading-none tracking-tighter mb-6">
-              <span className="block">Ender</span>
-              <span className="block text-gradient">Call</span>
+            <h1 className="relative text-6xl sm:text-7xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-6">
+              <span className="block bg-gradient-to-br from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent drop-shadow-[0_2px_20px_rgba(255,255,255,0.08)]">
+                Ender
+              </span>
+              <span className="block text-gradient drop-shadow-[0_4px_30px_hsl(var(--accent)/0.45)]">
+                Voice
+              </span>
+              <span className="absolute -inset-x-4 -inset-y-2 -z-10 bg-gradient-to-r from-primary/20 via-accent/10 to-transparent blur-3xl opacity-60 pointer-events-none" />
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-4 font-medium">
               Chat de Voz Nativo no Minecraft
