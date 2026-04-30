@@ -81,7 +81,7 @@ const Index = () => {
             <a href="#faq" className="hover:text-accent transition-smooth">FAQ</a>
           </div>
           <Button asChild className="bg-gradient-primary hover:opacity-90 shadow-glow border-0">
-            <a href={JAR_URL} download={JAR_NAME}><Download className="w-4 h-4 mr-2" />Baixar</a>
+            <a href="#" onClick={onDownload}><Download className="w-4 h-4 mr-2" />Baixar</a>
           </Button>
         </div>
       </nav>
@@ -115,7 +115,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-8 animate-pulse-glow">
-                <a href={JAR_URL} download={JAR_NAME}><Download className="w-5 h-5 mr-2" />Download Agora</a>
+                <a href="#" onClick={onDownload}><Download className="w-5 h-5 mr-2" />Download Agora</a>
               </Button>
               <Button asChild size="lg" variant="outline" className="glass border-accent/40 hover:bg-accent/10 hover:border-accent text-base h-14 px-8">
                 <a href="#how"><BookOpen className="w-5 h-5 mr-2" />Documentação</a>
