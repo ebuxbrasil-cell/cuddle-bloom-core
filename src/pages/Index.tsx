@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero.jpg";
 import showcaseImage from "@/assets/hero-card.jpg";
 import bgDragon from "@/assets/bg-dragon.jpg";
+import { triggerDownload } from "@/lib/download";
 
-const JAR_URL = "/EnderCallFabric-1.21.1.jar";
-const JAR_NAME = "EnderCallFabric-1.21.1.jar";
+const onDownload = (e: React.MouseEvent) => { e.preventDefault(); triggerDownload(); };
 
 const WAVE_BARS = [22, 38, 60, 30, 52, 80, 44, 70, 90, 55, 36, 68, 84, 48, 30, 62, 78, 40, 56, 28, 70, 50, 82, 34, 58, 44, 72, 30, 50, 64];
 
