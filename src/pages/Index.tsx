@@ -22,7 +22,7 @@ const FEATURES = [
 ];
 
 const STEPS = [
-  { icon: Package, title: "Instale o Mod", desc: "Baixe o Fabric Loader e o EnderCall. Arraste para a pasta mods. Pronto." },
+  { icon: Package, title: "Instale o Mod", desc: "Baixe o Fabric Loader e o EnderVoice. Arraste para a pasta mods. Pronto." },
   { icon: Server, title: "Entre no Servidor", desc: "Singleplayer ou multiplayer, qualquer mundo, qualquer modpack. Funciona automaticamente." },
   { icon: Mic, title: "Aperte V para Falar", desc: "Push-to-talk padrão. Customize a tecla nas opções e comece a conversar com a galera." },
 ];
@@ -37,11 +37,11 @@ const COMPAT = [
 ];
 
 const FAQ = [
-  { q: "Precisa instalar no servidor?", a: "Não! O EnderCall funciona 100% no cliente. Cada jogador instala o mod e pronto — qualquer servidor Fabric vanilla funciona." },
-  { q: "Funciona com outros mods de voz?", a: "Sim, é compatível com a maioria dos mods. Mas honestamente? O EnderCall foi feito do zero pra ser mais leve, mais rápido e mais fácil de usar. 😉" },
+  { q: "Precisa instalar no servidor?", a: "Não! O EnderVoice funciona 100% no cliente. Cada jogador instala o mod e pronto — qualquer servidor Fabric vanilla funciona." },
+  { q: "Funciona com outros mods de voz?", a: "Sim, é compatível com a maioria dos mods. Mas honestamente? O EnderVoice foi feito do zero pra ser mais leve, mais rápido e mais fácil de usar. 😉" },
   { q: "É seguro? Posso confiar no mod?", a: "100% open source. Todo o código está no GitHub, qualquer pessoa pode auditar. Sem telemetria, sem dados pessoais coletados." },
   { q: "Quanto custa?", a: "Totalmente gratuito. Para sempre. Sem anúncios, sem versão premium, sem pegadinhas." },
-  { q: "Funciona em modpacks?", a: "Sim! Foi testado nos modpacks mais populares do CurseForge e Modrinth. Se rodar Fabric, roda EnderCall." },
+  { q: "Funciona em modpacks?", a: "Sim! Foi testado nos modpacks mais populares do CurseForge e Modrinth. Se rodar Fabric, roda EnderVoice." },
   { q: "Posso silenciar jogadores específicos?", a: "Claro! Menu de jogadores integrado. Mute, ajuste volume individual, bloqueie quem encher o saco. Você no controle." },
 ];
 
@@ -72,7 +72,7 @@ const Index = () => {
             <div className="w-10 h-10 rounded-lg bg-gradient-primary flex items-center justify-center shadow-glow group-hover:scale-110 transition-smooth">
               <Headphones className="w-5 h-5 text-primary-foreground" />
             </div>
-            <span className="text-xl font-extrabold tracking-tight">EnderCall</span>
+            <span className="text-xl font-extrabold tracking-tight">EnderVoice</span>
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="#features" className="hover:text-accent transition-smooth">Features</a>
@@ -148,8 +148,8 @@ const Index = () => {
               {/* title row */}
               <div className="flex items-end justify-between gap-4 pl-[88px] pr-1 mb-5 -mt-2">
                 <div>
-                  <h2 className="text-2xl font-extrabold tracking-tight">EnderCall</h2>
-                  <p className="text-sm text-muted-foreground">por <span className="text-accent">EnderCall Team</span></p>
+                  <h2 className="text-2xl font-extrabold tracking-tight">EnderVoice</h2>
+                  <p className="text-sm text-muted-foreground">por <span className="text-accent">EnderVoice Team</span></p>
                 </div>
                 <span className="font-mono text-xs bg-secondary/60 border border-border px-2.5 py-1 rounded-md text-muted-foreground">v1.0.0</span>
               </div>
@@ -385,7 +385,7 @@ const Index = () => {
                 Junte-se a milhares de jogadores que já trocaram o Discord por uma experiência mais imersiva.
               </p>
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-10 animate-pulse-glow">
-                <a href="#" onClick={onDownload}><Download className="w-5 h-5 mr-2" />Baixar EnderCall</a>
+                <a href="#" onClick={onDownload}><Download className="w-5 h-5 mr-2" />Baixar EnderVoice</a>
               </Button>
             </div>
           </div>
@@ -401,7 +401,7 @@ const Index = () => {
                 <div className="w-9 h-9 rounded-lg bg-gradient-primary flex items-center justify-center shadow-glow">
                   <Headphones className="w-4 h-4 text-primary-foreground" />
                 </div>
-                <span className="text-lg font-extrabold">EnderCall</span>
+                <span className="text-lg font-extrabold">EnderVoice</span>
               </div>
               <p className="text-muted-foreground text-sm">Chat de voz nativo pro Minecraft Fabric. Feito por jogadores, pra jogadores.</p>
             </div>
@@ -429,7 +429,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-border/50 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>© 2026 EnderCall. Não afiliado à Mojang ou Microsoft.</p>
+            <p>© 2026 EnderVoice. Não afiliado à Mojang ou Microsoft.</p>
             <p className="font-mono text-xs">Made with <Heart className="w-3 h-3 inline text-primary-glow" /> for the block world</p>
           </div>
         </div>

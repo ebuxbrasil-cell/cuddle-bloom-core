@@ -19,7 +19,7 @@ export async function triggerDownload() {
   const res = await getActiveDownloadUrl();
   if (!res) {
     // Fallback to bundled jar
-    window.location.href = "/EnderCallFabric-1.21.1.jar";
+    window.location.href = "/EnderVoiceFabric-1.21.1.jar";
     return;
   }
   const a = document.createElement("a");
