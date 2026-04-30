@@ -9,41 +9,46 @@ export function useAuth() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => {
+    let mounted = true;
+
+    const checkAdmin = async (authUser: User | null) => {
+      if (!authUser) {
+        if (mounted) setIsAdmin(false);
+        return;
+      }
+
+      const { data, error } = await supabase
+        .from("user_roles")
+        .select("role")
+        .eq("user_id", authUser.id)
+        .eq("role", "admin")
+        .maybeSingle();
+
+      if (mounted) setIsAdmin(!error && !!data);
+    };
+
+    const applySession = async (s: Session | null, finishLoading = false) => {
+      if (!mounted) return;
       setSession(s);
       setUser(s?.user ?? null);
-      if (s?.user) {
-        // defer to avoid deadlocks
-        setTimeout(async () => {
-          const { data } = await supabase
-            .from("user_roles")
-            .select("role")
-            .eq("user_id", s.user.id)
-            .eq("role", "admin")
-            .maybeSingle();
-          setIsAdmin(!!data);
-        }, 0);
-      } else {
-        setIsAdmin(false);
-      }
+
+      await checkAdmin(s?.user ?? null);
+
+      if (finishLoading && mounted) setLoading(false);
+    };
+
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, s) => {
+      void applySession(s);
     });
 
     supabase.auth.getSession().then(({ data: { session: s } }) => {
-      setSession(s);
-      setUser(s?.user ?? null);
-      setLoading(false);
-      if (s?.user) {
-        supabase
-          .from("user_roles")
-          .select("role")
-          .eq("user_id", s.user.id)
-          .eq("role", "admin")
-          .maybeSingle()
-          .then(({ data }) => setIsAdmin(!!data));
-      }
+      void applySession(s, true);
     });
 
-    return () => sub.subscription.unsubscribe();
+    return () => {
+      mounted = false;
+      sub.subscription.unsubscribe();
+    };
   }, []);
 
   return { session, user, isAdmin, loading };
