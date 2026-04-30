@@ -65,13 +65,13 @@
     scroll-behavior: smooth;
   }
 
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
+  html, body {
+    @apply text-foreground font-sans antialiased;
+    background-color: hsl(var(--background));
     font-family: 'Poppins', system-ui, sans-serif;
-    background-image:
-      radial-gradient(ellipse at top, hsl(285 80% 18% / 0.5), transparent 60%),
-      radial-gradient(ellipse at bottom, hsl(190 100% 25% / 0.25), transparent 70%);
-    background-attachment: fixed;
+  }
+  body {
+    background-color: transparent;
   }
 
   .font-mono {

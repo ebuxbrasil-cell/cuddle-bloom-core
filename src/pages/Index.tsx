@@ -56,12 +56,12 @@ const Index = () => {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          filter: 'blur(24px) saturate(1.1)',
-          transform: 'scale(1.15)',
-          opacity: 0.45,
+          filter: 'blur(20px) saturate(1.15)',
+          transform: 'scale(1.2)',
+          opacity: 0.85,
         }}
       />
-      <div aria-hidden className="fixed inset-0 -z-10 pointer-events-none bg-background/70" />
+      <div aria-hidden className="fixed inset-0 -z-10 pointer-events-none bg-background/40" />
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
