@@ -9,6 +9,9 @@ import heroImage from "@/assets/hero.jpg";
 import showcaseImage from "@/assets/hero-card.jpg";
 import bgDragon from "@/assets/bg-dragon.jpg";
 
+const JAR_URL = "/EnderCallFabric-1.21.1.jar";
+const JAR_NAME = "EnderCallFabric-1.21.1.jar";
+
 const WAVE_BARS = [22, 38, 60, 30, 52, 80, 44, 70, 90, 55, 36, 68, 84, 48, 30, 62, 78, 40, 56, 28, 70, 50, 82, 34, 58, 44, 72, 30, 50, 64];
 
 const FEATURES = [
@@ -78,7 +81,7 @@ const Index = () => {
             <a href="#faq" className="hover:text-accent transition-smooth">FAQ</a>
           </div>
           <Button asChild className="bg-gradient-primary hover:opacity-90 shadow-glow border-0">
-            <a href="#download"><Download className="w-4 h-4 mr-2" />Baixar</a>
+            <a href={JAR_URL} download={JAR_NAME}><Download className="w-4 h-4 mr-2" />Baixar</a>
           </Button>
         </div>
       </nav>
@@ -112,7 +115,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-8 animate-pulse-glow">
-                <a href="#download"><Download className="w-5 h-5 mr-2" />Download Agora</a>
+                <a href={JAR_URL} download={JAR_NAME}><Download className="w-5 h-5 mr-2" />Download Agora</a>
               </Button>
               <Button asChild size="lg" variant="outline" className="glass border-accent/40 hover:bg-accent/10 hover:border-accent text-base h-14 px-8">
                 <a href="#how"><BookOpen className="w-5 h-5 mr-2" />Documentação</a>
@@ -186,7 +189,8 @@ const Index = () => {
 
               {/* download bar */}
               <a
-                href="#download"
+                href={JAR_URL}
+                download={JAR_NAME}
                 className="block bg-background/40 border border-border/60 hover:border-accent/60 hover:bg-accent/5 rounded-xl py-3.5 text-center font-semibold transition-smooth group"
               >
                 <span className="inline-flex items-center gap-2">
@@ -305,10 +309,10 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
-              { name: 'CurseForge', color: 'from-orange-600 to-amber-500', url: '#', desc: 'A maior plataforma de mods Minecraft' },
-              { name: 'Modrinth', color: 'from-emerald-500 to-accent', url: '#', desc: 'Open source e amigável aos devs' },
+              { name: 'Download Direto', color: 'from-primary to-accent', url: JAR_URL, desc: 'Baixe o .jar agora — pronto pra Fabric 1.21.1', direct: true },
+              { name: 'Modrinth', color: 'from-emerald-500 to-accent', url: '#', desc: 'Open source e amigável aos devs', direct: false },
             ].map((p, i) => (
-              <a key={i} href={p.url} className="group relative bg-gradient-card glass rounded-3xl p-8 shadow-card hover:-translate-y-2 transition-smooth overflow-hidden">
+              <a key={i} href={p.url} {...(p.direct ? { download: JAR_NAME } : {})} className="group relative bg-gradient-card glass rounded-3xl p-8 shadow-card hover:-translate-y-2 transition-smooth overflow-hidden">
                 <div className="absolute top-4 right-4 text-xs font-bold bg-accent text-accent-foreground px-3 py-1 rounded-full shadow-cyan">
                   100% GRATUITO
                 </div>
@@ -384,7 +388,7 @@ const Index = () => {
                 Junte-se a milhares de jogadores que já trocaram o Discord por uma experiência mais imersiva.
               </p>
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-10 animate-pulse-glow">
-                <a href="#download"><Download className="w-5 h-5 mr-2" />Baixar EnderCall</a>
+                <a href={JAR_URL} download={JAR_NAME}><Download className="w-5 h-5 mr-2" />Baixar EnderCall</a>
               </Button>
             </div>
           </div>
