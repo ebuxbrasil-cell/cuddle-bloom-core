@@ -189,8 +189,8 @@ const Index = () => {
 
               {/* download bar */}
               <a
-                href={JAR_URL}
-                download={JAR_NAME}
+                href="#"
+                onClick={onDownload}
                 className="block bg-background/40 border border-border/60 hover:border-accent/60 hover:bg-accent/5 rounded-xl py-3.5 text-center font-semibold transition-smooth group"
               >
                 <span className="inline-flex items-center gap-2">
@@ -309,10 +309,10 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
-              { name: 'Download Direto', color: 'from-primary to-accent', url: JAR_URL, desc: 'Baixe o .jar agora — pronto pra Fabric 1.21.1', direct: true },
-              { name: 'Modrinth', color: 'from-emerald-500 to-accent', url: '#', desc: 'Open source e amigável aos devs', direct: false },
+              { name: 'Download Direto', color: 'from-primary to-accent', desc: 'Baixe o .jar mais recente — sempre a versão ativa', direct: true },
+              { name: 'Modrinth', color: 'from-emerald-500 to-accent', desc: 'Open source e amigável aos devs', direct: false },
             ].map((p, i) => (
-              <a key={i} href={p.url} {...(p.direct ? { download: JAR_NAME } : {})} className="group relative bg-gradient-card glass rounded-3xl p-8 shadow-card hover:-translate-y-2 transition-smooth overflow-hidden">
+              <a key={i} href="#" onClick={p.direct ? onDownload : (e) => e.preventDefault()} className="group relative bg-gradient-card glass rounded-3xl p-8 shadow-card hover:-translate-y-2 transition-smooth overflow-hidden">
                 <div className="absolute top-4 right-4 text-xs font-bold bg-accent text-accent-foreground px-3 py-1 rounded-full shadow-cyan">
                   100% GRATUITO
                 </div>
@@ -388,7 +388,7 @@ const Index = () => {
                 Junte-se a milhares de jogadores que já trocaram o Discord por uma experiência mais imersiva.
               </p>
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-10 animate-pulse-glow">
-                <a href={JAR_URL} download={JAR_NAME}><Download className="w-5 h-5 mr-2" />Baixar EnderCall</a>
+                <a href="#" onClick={onDownload}><Download className="w-5 h-5 mr-2" />Baixar EnderCall</a>
               </Button>
             </div>
           </div>
