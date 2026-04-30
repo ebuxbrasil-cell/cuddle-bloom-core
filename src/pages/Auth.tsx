@@ -61,7 +61,7 @@ const Auth = () => {
             </div>
             <div>
               <h1 className="text-2xl font-extrabold tracking-tight">Admin EnderCall</h1>
-              <p className="text-sm text-muted-foreground">{mode === "login" ? "Entre na sua conta" : "Crie sua conta"}</p>
+              <p className="text-sm text-muted-foreground">Entre na sua conta</p>
             </div>
           </div>
 
