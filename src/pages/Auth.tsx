@@ -60,7 +60,7 @@ const Auth = () => {
               <Headphones className="w-6 h-6 text-primary-foreground" />
             </div>
             <div>
-              <h1 className="text-2xl font-extrabold tracking-tight">Admin EnderCall</h1>
+              <h1 className="text-2xl font-extrabold tracking-tight">Admin EnderVoice</h1>
               <p className="text-sm text-muted-foreground">Entre na sua conta</p>
             </div>
           </div>
