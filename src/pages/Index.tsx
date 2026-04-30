@@ -87,9 +87,6 @@ const Index = () => {
       <header className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
         {/* hero-only gradient overlay (background image is global) */}
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'var(--gradient-hero)' }} />
-          <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
-          <div className="absolute inset-0 bg-background/60" />
-        </div>
 
         {/* floating audio icons */}
         <Mic className="absolute top-32 left-[5%] w-8 h-8 text-accent opacity-40 animate-float hidden md:block" style={{ animationDelay: '0s' }} />
