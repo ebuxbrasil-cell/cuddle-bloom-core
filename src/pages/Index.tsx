@@ -6,6 +6,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero.jpg";
+import showcaseImage from "@/assets/hero-card.jpg";
+
+const WAVE_BARS = [22, 38, 60, 30, 52, 80, 44, 70, 90, 55, 36, 68, 84, 48, 30, 62, 78, 40, 56, 28, 70, 50, 82, 34, 58, 44, 72, 30, 50, 64];
 
 const FEATURES = [
   { icon: Zap, title: "Voz em Tempo Real", desc: "Latência ultra-baixa abaixo de 100ms. Conversas fluidas como se estivessem na mesma sala.", color: "from-primary to-primary-glow" },
@@ -65,34 +68,35 @@ const Index = () => {
       </nav>
 
       {/* HERO */}
-      <header className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <header className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+        {/* atmospheric background */}
         <div className="absolute inset-0 z-0">
-          <img src={heroImage} alt="Jogadores Minecraft com ícones de áudio neon" width={1920} height={1080} className="w-full h-full object-cover" />
+          <img src={heroImage} alt="" width={1920} height={1080} className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
-          <div className="absolute inset-0 bg-background/40" />
+          <div className="absolute inset-0 bg-background/60" />
         </div>
 
         {/* floating audio icons */}
-        <Mic className="absolute top-32 left-[8%] w-10 h-10 text-accent opacity-60 animate-float" style={{ animationDelay: '0s' }} />
-        <Volume2 className="absolute top-48 right-[12%] w-12 h-12 text-primary-glow opacity-50 animate-float" style={{ animationDelay: '1.5s' }} />
-        <Wifi className="absolute bottom-40 left-[15%] w-8 h-8 text-accent-glow opacity-60 animate-float" style={{ animationDelay: '3s' }} />
-        <Headphones className="absolute bottom-60 right-[20%] w-10 h-10 text-primary-glow opacity-50 animate-float" style={{ animationDelay: '2s' }} />
+        <Mic className="absolute top-32 left-[5%] w-8 h-8 text-accent opacity-40 animate-float hidden md:block" style={{ animationDelay: '0s' }} />
+        <Volume2 className="absolute bottom-32 left-[8%] w-10 h-10 text-primary-glow opacity-40 animate-float hidden md:block" style={{ animationDelay: '1.5s' }} />
+        <Wifi className="absolute top-1/2 right-[3%] w-8 h-8 text-accent-glow opacity-40 animate-float hidden lg:block" style={{ animationDelay: '3s' }} />
 
-        <div className="relative z-10 container mx-auto px-6 py-20">
-          <div className="max-w-4xl animate-fade-up">
+        <div className="relative z-10 container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          {/* LEFT: copy */}
+          <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-6 text-sm">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
               <span className="font-mono text-muted-foreground">v1.0 • Minecraft Fabric 1.20+</span>
             </div>
-            <h1 className="text-5xl sm:text-6xl md:text-8xl font-black leading-none tracking-tighter mb-6">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-black leading-none tracking-tighter mb-6">
               <span className="block">Ender</span>
               <span className="block text-gradient">Call</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-4 font-medium">
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-xl mb-4 font-medium">
               Chat de Voz Nativo no Minecraft
             </p>
-            <p className="text-base md:text-lg text-foreground/80 max-w-2xl mb-10">
-              Jogue com amigos <span className="text-accent font-semibold">SEM sair do jogo</span>. Sem Discord, sem TeamSpeak, sem complicação. Só você, seus amigos, e o block world.
+            <p className="text-base md:text-lg text-foreground/80 max-w-xl mb-10">
+              Jogue com amigos <span className="text-accent font-semibold">SEM sair do jogo</span>. Sem Discord, sem TeamSpeak, sem complicação.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-8 animate-pulse-glow">
@@ -102,14 +106,87 @@ const Index = () => {
                 <a href="#how"><BookOpen className="w-5 h-5 mr-2" />Documentação</a>
               </Button>
             </div>
-            <div className="flex items-center gap-6 mt-12 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-10 text-sm text-muted-foreground">
               <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-accent" /> 100% Open Source</div>
               <div className="flex items-center gap-2"><Heart className="w-4 h-4 text-primary-glow" /> Gratuito</div>
-              <div className="flex items-center gap-2"><Zap className="w-4 h-4 text-accent" /> {'<100ms latência'}</div>
+              <div className="flex items-center gap-2"><Zap className="w-4 h-4 text-accent" /> {'<30ms latência'}</div>
+            </div>
+          </div>
+
+          {/* RIGHT: showcase card */}
+          <div className="relative animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            {/* glow behind card */}
+            <div className="absolute -inset-8 opacity-60 blur-3xl pointer-events-none" style={{ background: 'var(--gradient-glow)' }} />
+
+            <div className="relative bg-gradient-card glass rounded-3xl p-5 md:p-6 shadow-card border border-border/60">
+              {/* image header */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/9] mb-5">
+                <img src={showcaseImage} alt="Personagens Minecraft com microfone neon" width={1536} height={768} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent" />
+                <div className="absolute top-3 right-3 inline-flex items-center gap-1.5 bg-accent/15 border border-accent/40 text-accent text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  VERIFICADO
+                </div>
+                {/* mic badge overlapping bottom-left */}
+                <div className="absolute -bottom-6 left-4 w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center shadow-glow">
+                  <Mic className="w-7 h-7 text-foreground" />
+                </div>
+              </div>
+
+              {/* title row */}
+              <div className="flex items-end justify-between gap-4 pl-[88px] pr-1 mb-5 -mt-2">
+                <div>
+                  <h2 className="text-2xl font-extrabold tracking-tight">EnderCall</h2>
+                  <p className="text-sm text-muted-foreground">por <span className="text-accent">EnderCall Team</span></p>
+                </div>
+                <span className="font-mono text-xs bg-secondary/60 border border-border px-2.5 py-1 rounded-md text-muted-foreground">v1.0.0</span>
+              </div>
+
+              {/* waveform */}
+              <div className="bg-background/60 border border-border/60 rounded-xl h-20 flex items-center justify-center gap-[3px] px-4 mb-4 overflow-hidden">
+                {WAVE_BARS.map((h, i) => (
+                  <span
+                    key={i}
+                    className="w-1.5 rounded-full bg-gradient-to-t from-primary to-accent"
+                    style={{
+                      height: `${h}%`,
+                      animation: `pulse-glow 1.4s ease-in-out ${i * 0.05}s infinite`,
+                      opacity: 0.85,
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* stats grid */}
+              <div className="grid grid-cols-3 gap-3 mb-4">
+                {[
+                  { icon: Download, value: '10K+', label: 'DOWNLOADS' },
+                  { icon: Zap, value: '<30ms', label: 'LATÊNCIA' },
+                  { icon: ShieldCheck, value: 'E2E', label: 'CRIPTO' },
+                ].map((s, i) => (
+                  <div key={i} className="bg-background/40 border border-border/60 rounded-xl py-3 px-2 text-center hover:border-accent/40 transition-smooth">
+                    <s.icon className="w-4 h-4 mx-auto mb-1.5 text-accent" />
+                    <div className="font-bold text-base">{s.value}</div>
+                    <div className="text-[10px] tracking-widest text-muted-foreground font-mono">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* download bar */}
+              <a
+                href="#download"
+                className="block bg-background/40 border border-border/60 hover:border-accent/60 hover:bg-accent/5 rounded-xl py-3.5 text-center font-semibold transition-smooth group"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <Download className="w-4 h-4 text-accent group-hover:translate-y-0.5 transition-smooth" />
+                  Baixar para Minecraft 1.21.1
+                </span>
+              </a>
             </div>
           </div>
         </div>
-        <ChevronDown className="absolute bottom-8 left-1/2 -translate-x-1/2 w-6 h-6 text-accent animate-bounce" />
+
+        <ChevronDown className="absolute bottom-6 left-1/2 -translate-x-1/2 w-6 h-6 text-accent animate-bounce hidden md:block" />
       </header>
 
       {/* FEATURES */}
