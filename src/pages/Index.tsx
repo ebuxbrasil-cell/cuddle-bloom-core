@@ -147,11 +147,11 @@ const Index = () => {
                 {WAVE_BARS.map((h, i) => (
                   <span
                     key={i}
-                    className="w-1.5 rounded-full bg-gradient-to-t from-primary to-accent"
+                    className="w-1.5 rounded-full bg-gradient-to-t from-primary to-accent animate-wave"
                     style={{
                       height: `${h}%`,
-                      animation: `pulse-glow 1.4s ease-in-out ${i * 0.05}s infinite`,
-                      opacity: 0.85,
+                      animationDelay: `${(i % 7) * 0.09}s`,
+                      animationDuration: `${0.9 + ((i * 37) % 10) * 0.07}s`,
                     }}
                   />
                 ))}
