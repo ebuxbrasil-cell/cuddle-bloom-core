@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero.jpg";
 import showcaseImage from "@/assets/hero-card.jpg";
+import bgDragon from "@/assets/bg-dragon.jpg";
 
 const WAVE_BARS = [22, 38, 60, 30, 52, 80, 44, 70, 90, 55, 36, 68, 84, 48, 30, 62, 78, 40, 56, 28, 70, 50, 82, 34, 58, 44, 72, 30, 50, 64];
 
@@ -45,7 +46,22 @@ const Index = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden relative">
+      {/* GLOBAL BACKGROUND — Ender Dragon, blurred & fixed */}
+      <div
+        aria-hidden
+        className="fixed inset-0 -z-10 pointer-events-none"
+        style={{
+          backgroundImage: `url(${bgDragon})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(24px) saturate(1.1)',
+          transform: 'scale(1.15)',
+          opacity: 0.45,
+        }}
+      />
+      <div aria-hidden className="fixed inset-0 -z-10 pointer-events-none bg-background/70" />
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -69,9 +85,8 @@ const Index = () => {
 
       {/* HERO */}
       <header className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
-        {/* atmospheric background */}
-        <div className="absolute inset-0 z-0">
-          <img src={heroImage} alt="" width={1920} height={1080} className="w-full h-full object-cover opacity-30" />
+        {/* hero-only gradient overlay (background image is global) */}
+        <div className="absolute inset-0 z-0 pointer-events-none" style={{ background: 'var(--gradient-hero)' }} />
           <div className="absolute inset-0" style={{ background: 'var(--gradient-hero)' }} />
           <div className="absolute inset-0 bg-background/60" />
         </div>
