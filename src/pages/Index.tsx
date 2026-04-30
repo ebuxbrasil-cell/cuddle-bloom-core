@@ -9,6 +9,9 @@ import heroImage from "@/assets/hero.jpg";
 import showcaseImage from "@/assets/hero-card.jpg";
 import bgDragon from "@/assets/bg-dragon.jpg";
 
+const JAR_URL = "/EnderCallFabric-1.21.1.jar";
+const JAR_NAME = "EnderCallFabric-1.21.1.jar";
+
 const WAVE_BARS = [22, 38, 60, 30, 52, 80, 44, 70, 90, 55, 36, 68, 84, 48, 30, 62, 78, 40, 56, 28, 70, 50, 82, 34, 58, 44, 72, 30, 50, 64];
 
 const FEATURES = [
@@ -78,7 +81,7 @@ const Index = () => {
             <a href="#faq" className="hover:text-accent transition-smooth">FAQ</a>
           </div>
           <Button asChild className="bg-gradient-primary hover:opacity-90 shadow-glow border-0">
-            <a href="#download"><Download className="w-4 h-4 mr-2" />Baixar</a>
+            <a href={JAR_URL} download={JAR_NAME}><Download className="w-4 h-4 mr-2" />Baixar</a>
           </Button>
         </div>
       </nav>
@@ -112,7 +115,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-8 animate-pulse-glow">
-                <a href="#download"><Download className="w-5 h-5 mr-2" />Download Agora</a>
+                <a href={JAR_URL} download={JAR_NAME}><Download className="w-5 h-5 mr-2" />Download Agora</a>
               </Button>
               <Button asChild size="lg" variant="outline" className="glass border-accent/40 hover:bg-accent/10 hover:border-accent text-base h-14 px-8">
                 <a href="#how"><BookOpen className="w-5 h-5 mr-2" />Documentação</a>
