@@ -117,9 +117,6 @@ const Index = () => {
               <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 shadow-glow border-0 text-base h-14 px-8 animate-pulse-glow">
                 <a href="#" onClick={onDownload}><Download className="w-5 h-5 mr-2" />Download Agora</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="glass border-accent/40 hover:bg-accent/10 hover:border-accent text-base h-14 px-8">
-                <a href="#how"><BookOpen className="w-5 h-5 mr-2" />Documentação</a>
-              </Button>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-10 text-sm text-muted-foreground">
               <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-accent" /> 100% Open Source</div>
